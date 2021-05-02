@@ -22,18 +22,14 @@ export function append(target: Node, node: Node) {
 	if (is_hydrating) {
 		nodes_to_detach.delete(node);
 	}
-	if (node.parentNode !== target) {
-		target.appendChild(node);
-	}
+	target.appendChild(node);
 }
 
 export function insert(target: Node, node: Node, anchor?: Node) {
 	if (is_hydrating) {
 		nodes_to_detach.delete(node);
 	}
-	if (node.parentNode !== target || (anchor && node.nextSibling !== anchor)) {
-		target.insertBefore(node, anchor || null);
-	}
+	target.insertBefore(node, anchor || null);
 }
 
 export function detach(node: Node) {
