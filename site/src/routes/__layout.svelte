@@ -1,12 +1,10 @@
 <script>
 	import { setContext } from 'svelte';
-	import { stores } from '@sapper/app';
+	import { navigating, page, session } from '$app/stores';
 	import { Icon, Icons, Nav, NavItem } from '@sveltejs/site-kit';
 	import PreloadingIndicator from '../components/PreloadingIndicator.svelte';
 
 	export let segment;
-
-	const { page, preloading, session } = stores();
 
 	setContext('app', {
 		login: () => {
@@ -31,7 +29,7 @@
 
 <Icons/>
 
-{#if $preloading}
+{#if $navigating.to}
 	<PreloadingIndicator/>
 {/if}
 

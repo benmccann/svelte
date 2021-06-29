@@ -1,5 +1,5 @@
 <script>
-	import { goto } from '@sapper/app';
+	import { goto } from '$app/navigation';
 	import { Icon } from '@sveltejs/site-kit';
 
 	export let sections;
